@@ -20,6 +20,21 @@
 
             SemanticScreenReader.Announce(CounterBtn.Text);
         }
+
+        private void RadioButton_Checked(object sender, CheckedChangedEventArgs e)
+        {
+
+        }
+
+        private void OnRadioButtonCheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+
+        }
+
+        private void OnAmountChanged(object sender, CheckedChangedEventArgs e)
+        {
+
+        }
     }
 
 }
