@@ -110,6 +110,7 @@
                     CornerRadius="22"
                     FontAttributes="Bold"
                     FontSize="18"
+                    x:Name="btnConnect"
                     HeightRequest="45"
                     Clicked="Button_Clicked"
                     Text="Connect Wallet"
@@ -126,8 +127,9 @@
                         AlignItems="Start"
                         Direction="Row"
                         JustifyContent="Start"
-                        Wrap="Wrap">
-                        <RadioButton Value="1Sol">
+                        Wrap="Wrap"
+                        x:Name="flexLayoutAmount">
+                        <RadioButton Value="1Sol" x:Name="sol1" IsEnabled="False" CheckedChanged="amount_CheckedChanged">
                             <RadioButton.Content>
                                 <Label
                                     HorizontalOptions="Center"
@@ -136,7 +138,7 @@
                             </RadioButton.Content>
                         </RadioButton>
 
-                        <RadioButton Value="2Sol">
+                        <RadioButton Value="2Sol" x:Name="sol2" IsEnabled="False" CheckedChanged="amount_CheckedChanged">
                             <RadioButton.Content>
                                 <Label
                                     HorizontalOptions="Center"
@@ -145,7 +147,7 @@
                             </RadioButton.Content>
                         </RadioButton>
 
-                        <RadioButton Value="5Sol">
+                        <RadioButton Value="5Sol" x:Name="sol5" IsEnabled="False" CheckedChanged="amount_CheckedChanged">
                             <RadioButton.Content>
                                 <Label
                                     HorizontalOptions="Center"
@@ -154,7 +156,7 @@
                             </RadioButton.Content>
                         </RadioButton>
 
-                        <RadioButton Value="10Sol">
+                        <RadioButton Value="10Sol" x:Name="sol10" IsEnabled="False" CheckedChanged="amount_CheckedChanged">
                             <RadioButton.Content>
                                 <Label
                                     HorizontalOptions="Center"
@@ -177,8 +179,9 @@
                         AlignItems="Start"
                         Direction="Row"
                         JustifyContent="Start"
-                        Wrap="Wrap">
-                        <RadioButton Value="2x">
+                        Wrap="Wrap"
+                        x:Name="profitFlexLayout">
+                        <RadioButton Value="2x" x:Name="x2" IsEnabled="False" CheckedChanged="profit_CheckedChanged">
                             <RadioButton.Content>
                                 <Label
                                     HorizontalOptions="Center"
@@ -187,7 +190,7 @@
                             </RadioButton.Content>
                         </RadioButton>
 
-                        <RadioButton Value="5x">
+                        <RadioButton Value="5x" x:Name="x5" IsEnabled="False" CheckedChanged="profit_CheckedChanged">
                             <RadioButton.Content>
                                 <Label
                                     HorizontalOptions="Center"
@@ -196,7 +199,7 @@
                             </RadioButton.Content>
                         </RadioButton>
 
-                        <RadioButton Value="10x">
+                        <RadioButton Value="10x" x:Name="x10" IsEnabled="False" CheckedChanged="profit_CheckedChanged">
                             <RadioButton.Content>
                                 <Label
                                     HorizontalOptions="Center"
@@ -205,7 +208,7 @@
                             </RadioButton.Content>
                         </RadioButton>
 
-                        <RadioButton Value="15x">
+                        <RadioButton Value="15x" x:Name="x15" IsEnabled="False" CheckedChanged="profit_CheckedChanged">
                             <RadioButton.Content>
                                 <Label
                                     HorizontalOptions="Center"
@@ -213,7 +216,7 @@
                                     TextColor="White" />
                             </RadioButton.Content>
                         </RadioButton>
-                        <RadioButton Value="20x">
+                        <RadioButton Value="20x" x:Name="x20" IsEnabled="False" CheckedChanged="profit_CheckedChanged">
                             <RadioButton.Content>
                                 <Label
                                     HorizontalOptions="Center"
@@ -221,7 +224,7 @@
                                     TextColor="White" />
                             </RadioButton.Content>
                         </RadioButton>
-                        <RadioButton Value="50x">
+                        <RadioButton Value="50x" x:Name="x50" IsEnabled="False" CheckedChanged="profit_CheckedChanged">
                             <RadioButton.Content>
                                 <Label
                                     HorizontalOptions="Center"
@@ -229,7 +232,7 @@
                                     TextColor="White" />
                             </RadioButton.Content>
                         </RadioButton>
-                        <RadioButton Value="100x">
+                        <RadioButton Value="100x" x:Name="x100" IsEnabled="False" CheckedChanged="profit_CheckedChanged">
                             <RadioButton.Content>
                                 <Label
                                     HorizontalOptions="Center"
@@ -254,10 +257,11 @@
                 <Entry
                     x:Name="txtInputLink"
                     Grid.Row="1"
+                    IsEnabled="False"
                     Background="White"
                     FontSize="16"
                     HeightRequest="30"
-                    IsEnabled="{Binding InputLinkEnable, Mode=TwoWay}"
+                    
                     TextChanged="Entry_TextChanged" />
 
 
@@ -307,7 +311,9 @@
             </Grid>
             <Grid Margin="20,0,20,20" ColumnDefinitions="*,*">
                 <Button
+                    x:Name="btnStart"
                     Grid.Row="0"
+                    IsEnabled="False"
                     Margin="0,0,10,0"
                     Padding="10"
                     BackgroundColor="LimeGreen"
@@ -315,7 +321,7 @@
                     FontAttributes="Bold"
                     FontSize="18"
                     HorizontalOptions="Fill"
-                    IsEnabled="{Binding StartBtnEnable, Mode=TwoWay}"
+                    
                     Text="START"
                     TextColor="White"
                     VerticalOptions="Center">
