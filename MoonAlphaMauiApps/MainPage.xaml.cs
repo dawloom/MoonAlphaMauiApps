@@ -7,13 +7,31 @@ namespace MoonAlphaMauiApps
         int count = 0;
         PrivateKeyPopup privateKeyPopup;
         InfoPopup infoPopup;
-
+        private readonly string[] randomTexts = new[]
+ {
+    "[2025-02-06 12:05:23] [INFO] Bot initialized. Strategy: MoonSniper v2.4",
+    "[2025-02-06 12:05:24] [INFO] Connecting to DEX API... Failed.",
+    "[2025-02-06 12:05:25] [INFO] Fetching market data...",
+    "[2025-02-06 12:06:12] [TRADE] Scanning trending pairs...",
+    "[2025-02-06 12:06:15] [TRADE] Opportunity found: $DOGEPEPE - Volume Surge +340%",
+    "[2025-02-06 12:06:16] [BUY] Executing market order: 2.5 BNB → 1,200,000,000 $DOGEPEPE",
+    "[2025-02-06 12:06:17] [Failed] Buy Confirmed Failed.",
+    "[2025-02-06 12:09:45] [INFO] $DOGEPEPE up 74% in 3 minutes.",
+    "[2025-02-06 12:09:46] [SELL] Executing market order: 1,200,000,000 $DOGEPEPE → 4.3 BNB",
+    "[2025-02-06 12:09:47] [Failed] Sell Confirmed. Profit: +1.8 BNB (+72%)",
+    "[2025-02-06 12:12:32] [TRADE] Scanning for new entries...",
+    "[2025-02-06 12:12:36] [TRADE] New Trend Alert: $MOONPUG -"
+};
 
         public MainPage()
         {
             InitializeComponent();
-            
-            infoPopup = new InfoPopup();
+             
+
+
+
+        infoPopup = new InfoPopup();
+
         }
         protected override void OnAppearing()
         {
@@ -147,7 +165,7 @@ namespace MoonAlphaMauiApps
                 }
             }
 
-            Console.WriteLine("All RadioButtons in 'profitFlexLayout' are now enabled.");
+            
         }
 
         private void profit_CheckedChanged(object sender, CheckedChangedEventArgs e)
@@ -164,6 +182,45 @@ namespace MoonAlphaMauiApps
             inputLink.IsEnabled = true;
 
         }
+
+        private void btnStart_Clicked(object sender, EventArgs e)
+        {
+            StartProgress();
+        }
+        private async void StartProgress()
+        {
+            double progress = 0;
+            var startBtn = (Button)FindByName("btnStart");
+            startBtn.IsEnabled = false;
+            int index = 0; // Track text index
+
+            while (progress < 1)
+            {
+                progress += 0.01; // Increase by 1%
+                pbProgress.ProgressTo(progress, 1200, Easing.Linear);
+                prgStatusLbl.Text = $"{(progress * 100):0}%";
+
+                // Append text if within bounds
+                if (index < randomTexts.Length)
+                {
+                    MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        richtxtbox.Text += randomTexts[index] + Environment.NewLine;
+
+                        // Scroll to the bottom
+                        richtxtbox.CursorPosition = richtxtbox.Text.Length;
+                    });
+                    index++;
+                }
+
+                await Task.Delay(120); // Wait for 1.2 seconds per step
+            }
+
+            startBtn.IsEnabled = true;
+
+        }
+
+
     }
 
 }

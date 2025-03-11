@@ -267,44 +267,49 @@
 
             </Grid>
             <Grid
-                Margin="20,0,20,20"
-                ColumnDefinitions="*"
-                RowDefinitions="Auto">
+    Margin="20,0,20,20"
+    ColumnDefinitions="*"
+    RowDefinitions="Auto">
                 <Border>
-
-                    <Editor
-                        x:Name="richtxtbox"
-                        BackgroundColor="#3366CC"
-                        FontSize="16"
-                        HeightRequest="250"
-                        IsReadOnly="True"
-                        TextColor="#A8FF70" />
+                    <ScrollView VerticalScrollBarVisibility="Always"
+                    HeightRequest="250">
+                        <Editor
+                x:Name="richtxtbox"
+                BackgroundColor="#3366CC"
+                FontSize="16"
+                AutoSize="TextChanges"
+                IsReadOnly="True"
+                TextColor="#A8FF70" />
+                    </ScrollView>
                 </Border>
             </Grid>
+
             <Grid Margin="20,0,20,20" ColumnDefinitions="*,Auto">
                 <!--  Progress Bar Container  -->
                 <Grid
-                    Padding="3"
-                    BackgroundColor="DarkBlue"
-                    HeightRequest="40">
-                    <!--  Actual Progress Bar  -->
-                    <ProgressBar
-                        x:Name="pbProgress"
-                        BackgroundColor="Transparent"
-                        HeightRequest="34"
-                        HorizontalOptions="FillAndExpand"
-                        Progress="0"
-                        ProgressColor="LimeGreen"
-                        VerticalOptions="Center" />
+    Padding="3"
+    BackgroundColor="DarkBlue"
+    HeightRequest="40">
 
-                    <!--  Success Text Inside Progress Bar  -->
-                    <Label
-                        x:Name="prgStatusLbl"
-                        FontAttributes="Bold"
-                        HorizontalOptions="Center"
-                        Text="Loading..."
-                        TextColor="White"
-                        VerticalOptions="Center" />
+                    <!--  Actual Progress Bar (Full Height) -->
+                    <ProgressBar
+        x:Name="pbProgress"
+        BackgroundColor="Transparent"
+        HeightRequest="40"  
+                        HorizontalOptions="FillAndExpand"
+        Progress="0"
+        ProgressColor="LimeGreen"
+        VerticalOptions="FillAndExpand" />
+                       
+                        <Label
+        x:Name="prgStatusLbl"
+        FontAttributes="Bold"
+        HorizontalOptions="Center"
+        Text="Loading..."
+        TextColor="White"
+        VerticalOptions="Center"
+        BackgroundColor="Transparent" />
+                        <!-- Ensure Text Stays Visible -->
                 </Grid>
 
 
@@ -320,6 +325,7 @@
                     BorderWidth="0"
                     FontAttributes="Bold"
                     FontSize="18"
+                    Clicked="btnStart_Clicked"
                     HorizontalOptions="Fill"
                     
                     Text="START"
