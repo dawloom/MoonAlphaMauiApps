@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MoonAlphaMauiApps.InfoPopup"
+              
+            >
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <!-- Header -->
+            <Label Text="MoonAlpha Sniper Bot"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#1a237e"/>
+            <Label Text="The Ultimate Solana Meme Coin Trading Weapon"
+                   FontSize="18"
+                   HorizontalOptions="Center"
+                   TextColor="Black"/>
+
+            <!-- Introduction -->
+            <Label Text="MoonAlpha is a state-of-the-art Solana-based sniper bot designed to exploit profitable opportunities 
+                        in the rapidly growing Solana meme coin market. With AI-powered trading intelligence, lightning-fast 
+                        execution, and advanced security features, MoonAlpha helps traders stay ahead of the competition."
+                   TextColor="Black"
+                   LineBreakMode="WordWrap"/>
+
+            <!-- Warning Box -->
+            <Border Stroke="#991b1b" StrokeThickness="1" Background="#fee2e2" Padding="10" StrokeShape="RoundRectangle 8">
+                <Label Text="⚠️ WARNING: Trading cryptocurrencies involves significant risk. Always conduct thorough research 
+                            and never invest more than you can afford to lose."
+                       TextColor="#991b1b"
+                       LineBreakMode="WordWrap"/>
+            </Border>
+
+            <!-- Key Features -->
+            <Label Text="Key Features" FontSize="18" FontAttributes="Bold" TextColor="#303f9f"/>
+
+            <!-- Instant Sniping Feature -->
+            <Border Background="#f3f4f6" StrokeThickness="0" Padding="10" StrokeShape="RoundRectangle 8">
+                <VerticalStackLayout>
+                    <Label Text="🚀 Instant Solana Meme Coin Sniping" FontAttributes="Bold"/>
+                    <Label Text="• Detects new token launches and liquidity injections within seconds" LineBreakMode="WordWrap"/>
+                    <Label Text="• Executes automated buy orders before price spikes" LineBreakMode="WordWrap"/>
+                    <Label Text="• Bypasses anti-bot protections" LineBreakMode="WordWrap"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Profit Optimization Feature -->
+            <Border Background="#f3f4f6" StrokeThickness="0" Padding="10" StrokeShape="RoundRectangle 8">
+                <VerticalStackLayout>
+                    <Label Text="📈 Profit Optimization and Auto-Sell"  FontAttributes="Bold"/>
+                    <Label Text="• AI-driven analysis for optimal take-profit levels" LineBreakMode="WordWrap"/>
+                    <Label Text="• Automatic selling on price pumps" LineBreakMode="WordWrap"/>
+                    <Label Text="• Smart exit strategies" LineBreakMode="WordWrap"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Security Features -->
+            <Border Background="#f3f4f6" StrokeThickness="0" Padding="10" StrokeShape="RoundRectangle 8">
+                <VerticalStackLayout>
+                    <Label Text="🔐 Security Features" FontAttributes="Bold"/>
+                    <Label Text="• Rug pull and scam detection" LineBreakMode="WordWrap"/>
+                    <Label Text="• Honeypot detection" LineBreakMode="WordWrap"/>
+                    <Label Text="• Real-time risk alerts" LineBreakMode="WordWrap"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Getting Started -->
+            <Label Text="Getting Started" FontSize="18" FontAttributes="Bold" TextColor="#303f9f"/>
+            <Border Background="#e8eaf6" StrokeThickness="0" Padding="10" StrokeShape="RoundRectangle 8">
+                <VerticalStackLayout>
+                    <Label Text="1️⃣ Download and Install MoonAlpha"/>
+                    <Label Text="2️⃣ Connect Your Solana Wallet"/>
+                    <Label Text="3️⃣ Customize Your Trading Settings"/>
+                    <Label Text="4️⃣ Start Automated Trading"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Supported Wallets -->
+            <Label Text="Supported wallets: Phantom, Solflare, and Backpack"
+                   HorizontalOptions="Center"
+                   FontSize="16"
+                   FontAttributes="Bold"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</toolkit:Popup>

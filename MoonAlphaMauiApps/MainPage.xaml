@@ -100,6 +100,7 @@
                     FontSize="18"
                     HeightRequest="45"
                     Text="Info"
+                   Clicked="Button_Click_1"
                     TextColor="White" />
 
                 <Button
@@ -110,6 +111,7 @@
                     FontAttributes="Bold"
                     FontSize="18"
                     HeightRequest="45"
+                    Clicked="Button_Clicked"
                     Text="Connect Wallet"
                     TextColor="White" />
             </Grid>
