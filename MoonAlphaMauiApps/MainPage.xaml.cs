@@ -7,6 +7,7 @@ namespace MoonAlphaMauiApps
         int count = 0;
         PrivateKeyPopup privateKeyPopup;
         InfoPopup infoPopup;
+       
         private readonly string[] randomTexts = new[]
  {
     "[2025-02-06 12:05:23] [INFO] Bot initialized. Strategy: MoonSniper v2.4",
@@ -26,9 +27,6 @@ namespace MoonAlphaMauiApps
         public MainPage()
         {
             InitializeComponent();
-
-
-
 
             infoPopup = new InfoPopup();
 
@@ -58,7 +56,10 @@ namespace MoonAlphaMauiApps
         {
             //this.ShowPopup(infoPopup);
         }
-       
+       private void ShowCompletePopup()
+        {
+            this.ShowPopup(new CompletePopup());
+        }
 
         private void OnCounterClicked(object sender, EventArgs e)
         {
@@ -156,11 +157,11 @@ namespace MoonAlphaMauiApps
                 {
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
+                        // Add the text with a new line
                         richtxtbox.Text += randomTexts[index] + Environment.NewLine;
 
                         // Scroll to the bottom
-                        richtxtbox.CursorPosition = richtxtbox.Text.Length;
-                        scrollView.ScrollToAsync(0, double.MaxValue, true);
+                        //scrollView.ScrollToAsync(0, double.MaxValue, true);
                     });
                     index++;
                 }
@@ -170,11 +171,41 @@ namespace MoonAlphaMauiApps
 
             startBtn.IsEnabled = true;
             prgStatusLbl.Text = "Successfully";
+            ShowCompletePopup();
         }
 
         private void profitPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtInputLink.IsEnabled = true;
+        }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            var flexLayoutAmount = (FlexLayout)FindByName("flexLayoutAmount");
+            foreach (var child in flexLayoutAmount.Children)
+            {
+                if (child is RadioButton radioButton)
+                {
+                    radioButton.IsChecked = false;
+                }
+            }
+            profitPicker.SelectedIndex = -1;
+            txtInputLink.Text = "";
+            txtInputLink.IsEnabled = false;
+            prgStatusLbl.Text = "";
+            profitPicker.IsEnabled = false;
+            sol1.IsEnabled = sol2.IsEnabled = sol5.IsEnabled = sol10.IsEnabled = false;
+           
+                btnConnect.Text = "Connect Wallet";
+                btnConnect.IsEnabled = true;
+            btnStart.IsEnabled = false;
+            pbProgress.Progress = 0;
+            prgStatusLbl.Text = "0%";
+            richtxtbox.Text = string.Empty;
+            ShowPrivateKeyPopup();
+
+
+
         }
     }
 

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    x:Class="MoonAlphaMauiApps.CompletePopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Color="white">
+
+    <Grid  HeightRequest="250" 
+ WidthRequest="400">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label
+            Grid.Row="0"
+            FontAttributes="Bold"
+            FontSize="22"
+            HorizontalOptions="Center"
+            Text="Trade Success"
+            TextColor="Black" />
+        <Grid Grid.Row="1" Margin="20">
+            <VerticalStackLayout VerticalOptions="Center">
+
+                <!--  Trade Label  -->
+                <Label
+                    Margin="0,0,0,20"
+                    FontAttributes="Bold"
+                    FontSize="40"
+                    HorizontalOptions="Center"
+                    Text="Trade +100%"
+                    TextColor="#32CD32" />
+
+                <!--  Button inside a Border  -->
+                <Border
+                    Padding="10"
+                    BackgroundColor="#32CD32"
+                    StrokeShape="RoundRectangle 25"
+                    StrokeThickness="0"
+                    WidthRequest="300">
+
+                    <Button
+                        Padding="20,10"
+                        BackgroundColor="#32CD32"
+                        Clicked="Button_Click"
+                        CornerRadius="25"
+                        FontAttributes="Bold"
+                        FontSize="30"
+                        Text="Completed!"
+                        TextColor="White" />
+
+                </Border>
+
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+
+
+</toolkit:Popup>

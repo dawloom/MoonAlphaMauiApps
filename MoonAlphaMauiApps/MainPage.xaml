@@ -65,201 +65,201 @@
     </ContentPage.Resources>
 
     <ScrollView>
-        <VerticalStackLayout>
-            <Grid
-                Margin="0,0,0,20"
-                BackgroundColor="#3366CC"
-                VerticalOptions="Center">
-                <HorizontalStackLayout VerticalOptions="Center">
-                    <Image
-                        Margin="10,0,10,0"
-                        HeightRequest="60"
-                        Source="logo.png"
-                        WidthRequest="60" />
-                    <Label
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <VerticalStackLayout Grid.Row="0">
+                <Grid
+                    Margin="0,0,0,20"
+                    BackgroundColor="#3366CC"
+                    VerticalOptions="Center">
+                    <HorizontalStackLayout VerticalOptions="Center">
+                        <Image
+                            Margin="10,0,10,0"
+                            HeightRequest="60"
+                            Source="logo.png"
+                            WidthRequest="60" />
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            Text="MoonAlpha Bot"
+                            TextColor="White"
+                            VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                </Grid>
+                <Grid Margin="20,0,20,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button
+                        Grid.Column="0"
+                        Margin="0,0,5,0"
+                        BackgroundColor="#0a84ff"
+                        Clicked="Button_Click_1"
+                        CornerRadius="22"
                         FontAttributes="Bold"
-                        FontSize="20"
-                        Text="MoonAlpha Bot"
-                        TextColor="White"
-                        VerticalOptions="Center" />
-                </HorizontalStackLayout>
-            </Grid>
-
-            <Grid Margin="20,0,20,20">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <Button
-                    Grid.Column="0"
-                    Margin="0,0,5,0"
-                    BackgroundColor="#0a84ff"
-                    Clicked="Button_Click_1"
-                    CornerRadius="22"
-                    FontAttributes="Bold"
-                    FontSize="18"
-                    HeightRequest="45"
-                    Text="Info"
-                    TextColor="White" />
-
-                <Button
-                    x:Name="btnConnect"
-                    Grid.Column="1"
-                    Margin="5,0,0,0"
-                    BackgroundColor="#ff3a30"
-                    Clicked="Button_Clicked"
-                    CornerRadius="22"
-                    FontAttributes="Bold"
-                    FontSize="18"
-                    HeightRequest="45"
-                    Text="Connect Wallet"
-                    TextColor="White" />
-            </Grid>
-            <Grid Margin="20,0,20,20">
-                <StackLayout>
-                    <Label
                         FontSize="18"
-                        Text="Amount"
+                        HeightRequest="45"
+                        Text="Info"
                         TextColor="White" />
 
-                    <FlexLayout
-                        x:Name="flexLayoutAmount"
-                        AlignItems="Start"
-                        Direction="Row"
-                        JustifyContent="Start"
-                        Wrap="Wrap">
-                        <RadioButton
-                            x:Name="sol1"
-                            CheckedChanged="amount_CheckedChanged"
-                            Value="1Sol">
-                            <RadioButton.Content>
-                                <Label
-                                    HorizontalOptions="Center"
-                                    Text="1 SOL"
-                                    TextColor="White" />
-                            </RadioButton.Content>
-                        </RadioButton>
+                    <Button
+                        x:Name="btnConnect"
+                        Grid.Column="1"
+                        Margin="5,0,0,0"
+                        BackgroundColor="#ff3a30"
+                        Clicked="Button_Clicked"
+                        CornerRadius="22"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HeightRequest="45"
+                        Text="Connect Wallet"
+                        TextColor="White" />
+                </Grid>
+                <Grid Margin="20,0,20,20">
+                    <StackLayout>
+                        <Label
+                            FontSize="18"
+                            Text="Amount"
+                            TextColor="White" />
 
-                        <RadioButton
-                            x:Name="sol2"
-                            CheckedChanged="amount_CheckedChanged"
-                            Value="2Sol">
-                            <RadioButton.Content>
-                                <Label
-                                    HorizontalOptions="Center"
-                                    Text="2 SOL"
-                                    TextColor="White" />
-                            </RadioButton.Content>
-                        </RadioButton>
+                        <FlexLayout
+                            x:Name="flexLayoutAmount"
+                            AlignItems="Start"
+                            Direction="Row"
+                            JustifyContent="Start"
+                            Wrap="Wrap">
+                            <RadioButton
+                                x:Name="sol1"
+                                CheckedChanged="amount_CheckedChanged"
+                                Value="1Sol">
+                                <RadioButton.Content>
+                                    <Label
+                                        HorizontalOptions="Center"
+                                        Text="1 SOL"
+                                        TextColor="White" />
+                                </RadioButton.Content>
+                            </RadioButton>
 
-                        <RadioButton
-                            x:Name="sol5"
-                            CheckedChanged="amount_CheckedChanged"
-                            Value="5Sol">
-                            <RadioButton.Content>
-                                <Label
-                                    HorizontalOptions="Center"
-                                    Text="5 SOL"
-                                    TextColor="White" />
-                            </RadioButton.Content>
-                        </RadioButton>
+                            <RadioButton
+                                x:Name="sol2"
+                                CheckedChanged="amount_CheckedChanged"
+                                Value="2Sol">
+                                <RadioButton.Content>
+                                    <Label
+                                        HorizontalOptions="Center"
+                                        Text="2 SOL"
+                                        TextColor="White" />
+                                </RadioButton.Content>
+                            </RadioButton>
 
-                        <RadioButton
-                            x:Name="sol10"
-                            CheckedChanged="amount_CheckedChanged"
-                            Value="10Sol">
-                            <RadioButton.Content>
-                                <Label
-                                    HorizontalOptions="Center"
-                                    Text="10 SOL"
-                                    TextColor="White" />
-                            </RadioButton.Content>
-                        </RadioButton>
-                    </FlexLayout>
-                </StackLayout>
+                            <RadioButton
+                                x:Name="sol5"
+                                CheckedChanged="amount_CheckedChanged"
+                                Value="5Sol">
+                                <RadioButton.Content>
+                                    <Label
+                                        HorizontalOptions="Center"
+                                        Text="5 SOL"
+                                        TextColor="White" />
+                                </RadioButton.Content>
+                            </RadioButton>
 
-            </Grid>
-            <Grid Margin="20,0,20,20">
-                <Picker
-                    x:Name="profitPicker"
-                    Title="Select Profit Multiplier"
-                    Background="White"
-                    TextColor="Black"
-                    IsEnabled="False"
-                    SelectedIndexChanged="profitPicker_SelectedIndexChanged"
-                    TitleColor="LightGray">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>2x</x:String>
-                            <x:String>5x</x:String>
-                            <x:String>10x</x:String>
-                            <x:String>15x</x:String>
-                            <x:String>20x</x:String>
-                            <x:String>50x</x:String>
-                            <x:String>100x</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
-                </Picker>
+                            <RadioButton
+                                x:Name="sol10"
+                                CheckedChanged="amount_CheckedChanged"
+                                Value="10Sol">
+                                <RadioButton.Content>
+                                    <Label
+                                        HorizontalOptions="Center"
+                                        Text="10 SOL"
+                                        TextColor="White" />
+                                </RadioButton.Content>
+                            </RadioButton>
+                        </FlexLayout>
+                    </StackLayout>
 
-
-            </Grid>
-            <Grid Margin="20,0,20,20" RowDefinitions="Auto,Auto">
-
-                <Label
-                    Grid.Row="0"
-                    FontAttributes="Bold"
-                    Text=" Input Link"
-                    TextColor="White"
-                    VerticalTextAlignment="Center" />
-
-                <!--  TextBox (Entry in MAUI)  -->
-                <Entry
-                    x:Name="txtInputLink"
-                    Grid.Row="1"
-                    Background="White"
-                    TextColor="Black"
-                    FontSize="16"
-                    HeightRequest="30"
-                    IsEnabled="False"
-                    TextChanged="Entry_TextChanged" />
+                </Grid>
+                <Grid Margin="20,0,20,20">
+                    <Picker
+                        x:Name="profitPicker"
+                        Title="Select Profit Multiplier"
+                        Background="White"
+                        IsEnabled="False"
+                        SelectedIndexChanged="profitPicker_SelectedIndexChanged"
+                        TextColor="Black"
+                        TitleColor="LightGray">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>2x</x:String>
+                                <x:String>5x</x:String>
+                                <x:String>10x</x:String>
+                                <x:String>15x</x:String>
+                                <x:String>20x</x:String>
+                                <x:String>50x</x:String>
+                                <x:String>100x</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
 
 
-            </Grid>
-            <Grid Margin="20,0,20,20">
+                </Grid>
+                <Grid Margin="20,0,20,20" RowDefinitions="Auto,Auto">
+
+                    <Label
+                        Grid.Row="0"
+                        FontAttributes="Bold"
+                        Text=" Input Link"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
+
+                    <!--  TextBox (Entry in MAUI)  -->
+                    <Entry
+                        x:Name="txtInputLink"
+                        Grid.Row="1"
+                        Background="White"
+                        FontSize="16"
+                        HeightRequest="30"
+                        IsEnabled="False"
+                        TextChanged="Entry_TextChanged"
+                        TextColor="Black" />
+
+
+                </Grid>
+            </VerticalStackLayout>
+            <Grid Grid.Row="1" Margin="20,0,20,20">
                 <Border
                     Padding="5"
                     Stroke="White"
                     StrokeThickness="2">
-                    <ScrollView x:Name="scrollView" VerticalScrollBarVisibility="Always">
-                       
-                            <Editor
-                                x:Name="richtxtbox"
-                                BackgroundColor="#3366CC"
-                                FontSize="16"
-                                MaximumHeightRequest="250"
-                                IsReadOnly="True"
-                                TextColor="#A8FF70" />
-                        
-                    </ScrollView>
+
+                    <Editor
+                        x:Name="richtxtbox"
+                        AutoSize="TextChanges"
+                        BackgroundColor="#3366CC"
+                        FontSize="16"
+                        IsReadOnly="True"
+                        TextColor="#A8FF70" />
+
+
                 </Border>
             </Grid>
+            <VerticalStackLayout Grid.Row="2">
+                <Grid Margin="20,0,20,20">
+                    <!--  Progress Bar Container  -->
 
-
-
-            <Grid Margin="20,0,20,20"  >
-                <!--  Progress Bar Container  -->
-               
 
                     <!--  Actual Progress Bar (Full Height)  -->
                     <ProgressBar
                         x:Name="pbProgress"
                         BackgroundColor="Blue"
-                        
-                        
                         Progress="0"
-                        ProgressColor="LimeGreen"
-                       />
+                        ProgressColor="LimeGreen" />
 
                     <Label
                         x:Name="prgStatusLbl"
@@ -270,80 +270,82 @@
                         TextColor="White"
                         VerticalOptions="Center" />
                     <!--  Ensure Text Stays Visible  -->
-               
 
-            </Grid>
-            <Grid Margin="20,0,20,20" ColumnDefinitions="*,*">
+
+                </Grid>
+                <Grid Margin="20,0,20,20" ColumnDefinitions="*,*">
+                    <Button
+                        x:Name="btnStart"
+                        Grid.Row="0"
+                        Margin="0,0,10,0"
+                        Padding="10"
+                        BackgroundColor="LimeGreen"
+                        BorderWidth="0"
+                        Clicked="btnStart_Clicked"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalOptions="Fill"
+                        IsEnabled="False"
+                        Text="START"
+                        TextColor="White"
+                        VerticalOptions="Center">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="CornerRadius" Value="20" />
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <Button
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Padding="10"
+                        BackgroundColor="Red"
+                        BorderWidth="0"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalOptions="Fill"
+                        IsEnabled="{Binding StopBtnIsEnable, Mode=TwoWay}"
+                        Text="STOP"
+                        TextColor="White"
+                        VerticalOptions="Center">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="CornerRadius" Value="20" />
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Grid>
+                <Grid
+                    Margin="20,0,20,20"
+                    HorizontalOptions="Start"
+                    WidthRequest="70">
+                    <Button Text="Logs" Clicked="Button_Clicked_1">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="TextColor" Value="White" />
+                                <Setter Property="FontSize" Value="12" />
+                                <Setter Property="BackgroundColor" Value="Gray" />
+                                <Setter Property="Padding" Value="5,1" />
+                                <Setter Property="BorderWidth" Value="0" />
+                                <Setter Property="CornerRadius" Value="10" />
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                </Grid>
+
+
+
                 <Button
-                    x:Name="btnStart"
-                    Grid.Row="0"
-                    Margin="0,0,10,0"
-                    Padding="10"
-                    BackgroundColor="LimeGreen"
-                    BorderWidth="0"
-                    Clicked="btnStart_Clicked"
-                    FontAttributes="Bold"
-                    FontSize="18"
+                    x:Name="CounterBtn"
+                    Clicked="OnCounterClicked"
                     HorizontalOptions="Fill"
-                    IsEnabled="False"
-                    Text="START"
-                    TextColor="White"
-                    VerticalOptions="Center">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="CornerRadius" Value="20" />
-                        </Style>
-                    </Button.Style>
-                </Button>
+                    SemanticProperties.Hint="Counts the number of times you click"
+                    Text="Click me" />
+            </VerticalStackLayout>
+        </Grid>
 
-                <Button
-                    Grid.Column="1"
-                    Margin="10,0,0,0"
-                    Padding="10"
-                    BackgroundColor="Red"
-                    BorderWidth="0"
-                    FontAttributes="Bold"
-                    FontSize="18"
-                    HorizontalOptions="Fill"
-                    IsEnabled="{Binding StopBtnIsEnable, Mode=TwoWay}"
-                    Text="STOP"
-                    TextColor="White"
-                    VerticalOptions="Center">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="CornerRadius" Value="20" />
-                        </Style>
-                    </Button.Style>
-                </Button>
-            </Grid>
-            <Grid
-                Margin="20,0,20,20"
-                HorizontalOptions="Start"
-                WidthRequest="70">
-                <Button Text="Logs">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="TextColor" Value="White" />
-                            <Setter Property="FontSize" Value="12" />
-                            <Setter Property="BackgroundColor" Value="Gray" />
-                            <Setter Property="Padding" Value="5,1" />
-                            <Setter Property="BorderWidth" Value="0" />
-                            <Setter Property="CornerRadius" Value="10" />
-                        </Style>
-                    </Button.Style>
-                </Button>
-
-            </Grid>
-
-
-
-            <Button
-                x:Name="CounterBtn"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Text="Click me" />
-        </VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>
