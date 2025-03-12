@@ -1,6 +1,7 @@
-﻿using Android.Graphics;
+﻿
 using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls;
+using System.Collections.ObjectModel;
 namespace MoonAlphaMauiApps
 {
     public partial class MainPage : ContentPage
@@ -138,7 +139,6 @@ namespace MoonAlphaMauiApps
             // Reset UI instantly before starting again
             pbProgress.Progress = 0;
             prgStatusLbl.Text = "0%";
-            richtxtbox.Text = string.Empty; // Clear previous text
 
             double progress = 0;
             var startBtn = (Button)FindByName("btnStart");
@@ -150,17 +150,26 @@ namespace MoonAlphaMauiApps
                 progress += 0.01; // Increase by 1%
                 pbProgress.ProgressTo(progress, 1200, Easing.Linear);
                 prgStatusLbl.Text = $"{(progress * 100):0}%";
-
                 MainThread.BeginInvokeOnMainThread(async () =>
                 {
-                    // Add text from the array, cycling through if necessary
-                    richtxtbox.Text += randomTexts[index % randomTexts.Length] + Environment.NewLine;
+                    // Ensure we have a valid ObservableCollection<string> for automatic UI updates
+                    if (richtxtbox.ItemsSource is not ObservableCollection<string> items)
+                    {
+                        items = new ObservableCollection<string>();
+                        richtxtbox.ItemsSource = items; // Set once to maintain binding
+                    }
+
+                    // Add new text smoothly
+                    items.Add(randomTexts[index % randomTexts.Length]);
 
                     // Allow UI update before scrolling
                     await Task.Delay(100);
 
-                    // Scroll to the bottom
-                    await scrollView.ScrollToAsync(0, double.MaxValue, true);
+                    // Smoothly scroll to the latest item
+                    if (items.Count > 0)
+                    {
+                        richtxtbox.ScrollTo(items[^1], ScrollToPosition.End, true);
+                    }
                 });
 
                 index++; // Increment index for next text
@@ -200,7 +209,7 @@ namespace MoonAlphaMauiApps
             btnStart.IsEnabled = false;
             pbProgress.Progress = 0;
             prgStatusLbl.Text = "";
-            richtxtbox.Text = string.Empty;
+           
             ShowPrivateKeyPopup();
 
 

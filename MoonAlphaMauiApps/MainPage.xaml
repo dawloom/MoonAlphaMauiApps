@@ -233,18 +233,27 @@
                 </Grid>
             </VerticalStackLayout>
             <Grid Grid.Row="1" Margin="20,0,20,20">
-                <Border Padding="5" Stroke="White" StrokeThickness="2">
+                <Border Padding="5">
                     <ScrollView x:Name="scrollView">
-                        <Editor
-            x:Name="richtxtbox"
-            AutoSize="TextChanges"
-            BackgroundColor="#3366CC"
-            FontSize="16"
-            IsReadOnly="True"
-            TextColor="#A8FF70"/>
+                        <!-- ✅ Fixed: Use ScrollView -->
+                        <ListView x:Name="richtxtbox"
+          HasUnevenRows="True"
+          MaximumHeightRequest="200"
+          BackgroundColor="#3366CC">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Label Text="{Binding}"
+                       FontSize="16"
+                       TextColor="#A8FF70"
+                       Padding="5"/>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
                     </ScrollView>
                 </Border>
-
             </Grid>
             <VerticalStackLayout Grid.Row="2">
                 <Grid Margin="20,0,20,20">
