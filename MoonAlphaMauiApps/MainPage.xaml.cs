@@ -142,19 +142,19 @@ namespace MoonAlphaMauiApps
                 pbProgress.ProgressTo(progress, 1200, Easing.Linear);
                 prgStatusLbl.Text = $"{(progress * 100):0}%";
 
-                // Append text if within bounds
-                if (index < randomTexts.Length)
+                MainThread.BeginInvokeOnMainThread(async () =>
                 {
-                    MainThread.BeginInvokeOnMainThread(() =>
-                    {
-                        // Add the text with a new line
-                        richtxtbox.Text += randomTexts[index] + Environment.NewLine;
+                    // Add text from the array, cycling through if necessary
+                    richtxtbox.Text += randomTexts[index % randomTexts.Length] + Environment.NewLine;
 
-                        // Scroll to the bottom
-                        //scrollView.ScrollToAsync(0, double.MaxValue, true);
-                    });
-                    index++;
-                }
+                    // Allow UI update before scrolling
+                    await Task.Delay(100);
+
+                    // Scroll to the bottom
+                    await scrollView.ScrollToAsync(0, double.MaxValue, true);
+                });
+
+                index++; // Increment index for next text
 
                 await Task.Delay(120); // Wait for 1.2 seconds per step
             }
