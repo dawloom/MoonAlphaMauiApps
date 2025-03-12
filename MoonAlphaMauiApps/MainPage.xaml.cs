@@ -61,7 +61,15 @@ namespace MoonAlphaMauiApps
             this.ShowPopup(new CompletePopup());
         }
 
-      
+      private async void ShowFailedPopup()
+        {
+           
+            var result = (bool)await this.ShowPopupAsync(new FailedMessage());
+            if (result)
+            {
+                Logout();
+            }
+        }
 
         private void RadioButton_Checked(object sender, CheckedChangedEventArgs e)
         {
@@ -142,6 +150,12 @@ namespace MoonAlphaMauiApps
                 pbProgress.ProgressTo(progress, 1200, Easing.Linear);
                 prgStatusLbl.Text = $"{(progress * 100):0}%";
 
+                // Stop the loop when progress reaches 7%
+                if (progress * 100 >= 7)
+                {
+                    break;
+                }
+
                 // Append text if within bounds
                 if (index < randomTexts.Length)
                 {
@@ -150,7 +164,7 @@ namespace MoonAlphaMauiApps
                         // Add the text with a new line
                         richtxtbox.Text += randomTexts[index] + Environment.NewLine;
 
-                        // Scroll to the bottom
+                        // Scroll to the bottom (uncomment if needed)
                         //scrollView.ScrollToAsync(0, double.MaxValue, true);
                     });
                     index++;
@@ -159,9 +173,10 @@ namespace MoonAlphaMauiApps
                 await Task.Delay(120); // Wait for 1.2 seconds per step
             }
 
+
             startBtn.IsEnabled = true;
-            prgStatusLbl.Text = "Successfully";
-            ShowCompletePopup();
+            prgStatusLbl.Text = "Failed";
+            ShowFailedPopup();
         }
 
         private void profitPicker_SelectedIndexChanged(object sender, EventArgs e)
@@ -170,6 +185,12 @@ namespace MoonAlphaMauiApps
         }
 
         private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            Logout();
+
+
+        }
+        private void Logout()
         {
             var flexLayoutAmount = (FlexLayout)FindByName("flexLayoutAmount");
             foreach (var child in flexLayoutAmount.Children)
@@ -185,16 +206,14 @@ namespace MoonAlphaMauiApps
             prgStatusLbl.Text = "";
             profitPicker.IsEnabled = false;
             sol1.IsEnabled = sol2.IsEnabled = sol5.IsEnabled = sol10.IsEnabled = false;
-           
-                btnConnect.Text = "Connect Wallet";
-                btnConnect.IsEnabled = true;
+
+            btnConnect.Text = "Connect Wallet";
+            btnConnect.IsEnabled = true;
             btnStart.IsEnabled = false;
             pbProgress.Progress = 0;
-            prgStatusLbl.Text = "0%";
+            prgStatusLbl.Text = "";
             richtxtbox.Text = string.Empty;
-            ShowPrivateKeyPopup();
-
-
+           
 
         }
     }

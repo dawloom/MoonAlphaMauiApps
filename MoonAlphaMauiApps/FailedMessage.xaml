@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MoonAlphaMauiApps.FailedMessage"
+              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               CanBeDismissedByTappingOutsideOfPopup="False"
+               Color="White">
+    <Grid Padding="20">
+        <VerticalStackLayout VerticalOptions="Center" Spacing="20">
+
+            <!-- Failed Text -->
+            <Label 
+                Text="Failed!" 
+                FontSize="32"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                TextColor="Black"/>
+
+            <!-- Button -->
+            <Button 
+                Text="Not enough Sol at 7 percent"
+                WidthRequest="300"
+                HeightRequest="50"
+                BackgroundColor="Red"
+                TextColor="White"
+                FontSize="20"
+                CornerRadius="25"
+                Clicked="Button_Click"/>
+
+        </VerticalStackLayout>
+    </Grid>
+</toolkit:Popup>
