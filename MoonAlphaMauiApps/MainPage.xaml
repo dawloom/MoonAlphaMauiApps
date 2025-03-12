@@ -95,24 +95,24 @@
                     Grid.Column="0"
                     Margin="0,0,5,0"
                     BackgroundColor="#0a84ff"
+                    Clicked="Button_Click_1"
                     CornerRadius="22"
                     FontAttributes="Bold"
                     FontSize="18"
                     HeightRequest="45"
                     Text="Info"
-                   Clicked="Button_Click_1"
                     TextColor="White" />
 
                 <Button
+                    x:Name="btnConnect"
                     Grid.Column="1"
                     Margin="5,0,0,0"
                     BackgroundColor="#ff3a30"
+                    Clicked="Button_Clicked"
                     CornerRadius="22"
                     FontAttributes="Bold"
                     FontSize="18"
-                    x:Name="btnConnect"
                     HeightRequest="45"
-                    Clicked="Button_Clicked"
                     Text="Connect Wallet"
                     TextColor="White" />
             </Grid>
@@ -124,12 +124,15 @@
                         TextColor="White" />
 
                     <FlexLayout
+                        x:Name="flexLayoutAmount"
                         AlignItems="Start"
                         Direction="Row"
                         JustifyContent="Start"
-                        Wrap="Wrap"
-                        x:Name="flexLayoutAmount">
-                        <RadioButton Value="1Sol" x:Name="sol1" IsEnabled="False" CheckedChanged="amount_CheckedChanged">
+                        Wrap="Wrap">
+                        <RadioButton
+                            x:Name="sol1"
+                            CheckedChanged="amount_CheckedChanged"
+                            Value="1Sol">
                             <RadioButton.Content>
                                 <Label
                                     HorizontalOptions="Center"
@@ -138,7 +141,10 @@
                             </RadioButton.Content>
                         </RadioButton>
 
-                        <RadioButton Value="2Sol" x:Name="sol2" IsEnabled="False" CheckedChanged="amount_CheckedChanged">
+                        <RadioButton
+                            x:Name="sol2"
+                            CheckedChanged="amount_CheckedChanged"
+                            Value="2Sol">
                             <RadioButton.Content>
                                 <Label
                                     HorizontalOptions="Center"
@@ -147,7 +153,10 @@
                             </RadioButton.Content>
                         </RadioButton>
 
-                        <RadioButton Value="5Sol" x:Name="sol5" IsEnabled="False" CheckedChanged="amount_CheckedChanged">
+                        <RadioButton
+                            x:Name="sol5"
+                            CheckedChanged="amount_CheckedChanged"
+                            Value="5Sol">
                             <RadioButton.Content>
                                 <Label
                                     HorizontalOptions="Center"
@@ -156,7 +165,10 @@
                             </RadioButton.Content>
                         </RadioButton>
 
-                        <RadioButton Value="10Sol" x:Name="sol10" IsEnabled="False" CheckedChanged="amount_CheckedChanged">
+                        <RadioButton
+                            x:Name="sol10"
+                            CheckedChanged="amount_CheckedChanged"
+                            Value="10Sol">
                             <RadioButton.Content>
                                 <Label
                                     HorizontalOptions="Center"
@@ -169,79 +181,27 @@
 
             </Grid>
             <Grid Margin="20,0,20,20">
-                <StackLayout>
-                    <Label
-                        FontSize="18"
-                        Text="Take Profit"
-                        TextColor="White" />
+                <Picker
+                    x:Name="profitPicker"
+                    Title="Select Profit Multiplier"
+                    Background="White"
+                    TextColor="Black"
+                    IsEnabled="False"
+                    SelectedIndexChanged="profitPicker_SelectedIndexChanged"
+                    TitleColor="LightGray">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>2x</x:String>
+                            <x:String>5x</x:String>
+                            <x:String>10x</x:String>
+                            <x:String>15x</x:String>
+                            <x:String>20x</x:String>
+                            <x:String>50x</x:String>
+                            <x:String>100x</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
 
-                    <FlexLayout
-                        AlignItems="Start"
-                        Direction="Row"
-                        JustifyContent="Start"
-                        Wrap="Wrap"
-                        x:Name="profitFlexLayout">
-                        <RadioButton Value="2x" x:Name="x2" IsEnabled="False" CheckedChanged="profit_CheckedChanged">
-                            <RadioButton.Content>
-                                <Label
-                                    HorizontalOptions="Center"
-                                    Text="2x"
-                                    TextColor="White" />
-                            </RadioButton.Content>
-                        </RadioButton>
-
-                        <RadioButton Value="5x" x:Name="x5" IsEnabled="False" CheckedChanged="profit_CheckedChanged">
-                            <RadioButton.Content>
-                                <Label
-                                    HorizontalOptions="Center"
-                                    Text="5x"
-                                    TextColor="White" />
-                            </RadioButton.Content>
-                        </RadioButton>
-
-                        <RadioButton Value="10x" x:Name="x10" IsEnabled="False" CheckedChanged="profit_CheckedChanged">
-                            <RadioButton.Content>
-                                <Label
-                                    HorizontalOptions="Center"
-                                    Text="10x"
-                                    TextColor="White" />
-                            </RadioButton.Content>
-                        </RadioButton>
-
-                        <RadioButton Value="15x" x:Name="x15" IsEnabled="False" CheckedChanged="profit_CheckedChanged">
-                            <RadioButton.Content>
-                                <Label
-                                    HorizontalOptions="Center"
-                                    Text="15x"
-                                    TextColor="White" />
-                            </RadioButton.Content>
-                        </RadioButton>
-                        <RadioButton Value="20x" x:Name="x20" IsEnabled="False" CheckedChanged="profit_CheckedChanged">
-                            <RadioButton.Content>
-                                <Label
-                                    HorizontalOptions="Center"
-                                    Text="20x"
-                                    TextColor="White" />
-                            </RadioButton.Content>
-                        </RadioButton>
-                        <RadioButton Value="50x" x:Name="x50" IsEnabled="False" CheckedChanged="profit_CheckedChanged">
-                            <RadioButton.Content>
-                                <Label
-                                    HorizontalOptions="Center"
-                                    Text="50x"
-                                    TextColor="White" />
-                            </RadioButton.Content>
-                        </RadioButton>
-                        <RadioButton Value="100x" x:Name="x100" IsEnabled="False" CheckedChanged="profit_CheckedChanged">
-                            <RadioButton.Content>
-                                <Label
-                                    HorizontalOptions="Center"
-                                    Text="100x"
-                                    TextColor="White" />
-                            </RadioButton.Content>
-                        </RadioButton>
-                    </FlexLayout>
-                </StackLayout>
 
             </Grid>
             <Grid Margin="20,0,20,20" RowDefinitions="Auto,Auto">
@@ -257,77 +217,75 @@
                 <Entry
                     x:Name="txtInputLink"
                     Grid.Row="1"
-                    IsEnabled="False"
                     Background="White"
+                    TextColor="Black"
                     FontSize="16"
                     HeightRequest="30"
-                    
+                    IsEnabled="False"
                     TextChanged="Entry_TextChanged" />
 
 
             </Grid>
-            <Grid
-    Margin="20,0,20,20"
-    ColumnDefinitions="*"
-    RowDefinitions="Auto">
-                <Border>
-                    <ScrollView VerticalScrollBarVisibility="Always"
-                    HeightRequest="250">
-                        <Editor
-                x:Name="richtxtbox"
-                BackgroundColor="#3366CC"
-                FontSize="16"
-                AutoSize="TextChanges"
-                IsReadOnly="True"
-                TextColor="#A8FF70" />
+            <Grid Margin="20,0,20,20">
+                <Border
+                    Padding="5"
+                    Stroke="White"
+                    StrokeThickness="2">
+                    <ScrollView x:Name="scrollView" VerticalScrollBarVisibility="Always">
+                       
+                            <Editor
+                                x:Name="richtxtbox"
+                                BackgroundColor="#3366CC"
+                                FontSize="16"
+                                MaximumHeightRequest="250"
+                                IsReadOnly="True"
+                                TextColor="#A8FF70" />
+                        
                     </ScrollView>
                 </Border>
             </Grid>
 
-            <Grid Margin="20,0,20,20" ColumnDefinitions="*,Auto">
+
+
+            <Grid Margin="20,0,20,20"  >
                 <!--  Progress Bar Container  -->
-                <Grid
-    Padding="3"
-    BackgroundColor="DarkBlue"
-    HeightRequest="40">
+               
 
-                    <!--  Actual Progress Bar (Full Height) -->
+                    <!--  Actual Progress Bar (Full Height)  -->
                     <ProgressBar
-        x:Name="pbProgress"
-        BackgroundColor="Transparent"
-        HeightRequest="40"  
-                        HorizontalOptions="FillAndExpand"
-        Progress="0"
-        ProgressColor="LimeGreen"
-        VerticalOptions="FillAndExpand" />
-                       
-                        <Label
-        x:Name="prgStatusLbl"
-        FontAttributes="Bold"
-        HorizontalOptions="Center"
-        Text="Loading..."
-        TextColor="White"
-        VerticalOptions="Center"
-        BackgroundColor="Transparent" />
-                        <!-- Ensure Text Stays Visible -->
-                </Grid>
+                        x:Name="pbProgress"
+                        BackgroundColor="Blue"
+                        
+                        
+                        Progress="0"
+                        ProgressColor="LimeGreen"
+                       />
 
+                    <Label
+                        x:Name="prgStatusLbl"
+                        BackgroundColor="Transparent"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        Text=""
+                        TextColor="White"
+                        VerticalOptions="Center" />
+                    <!--  Ensure Text Stays Visible  -->
+               
 
             </Grid>
             <Grid Margin="20,0,20,20" ColumnDefinitions="*,*">
                 <Button
                     x:Name="btnStart"
                     Grid.Row="0"
-                    IsEnabled="False"
                     Margin="0,0,10,0"
                     Padding="10"
                     BackgroundColor="LimeGreen"
                     BorderWidth="0"
+                    Clicked="btnStart_Clicked"
                     FontAttributes="Bold"
                     FontSize="18"
-                    Clicked="btnStart_Clicked"
                     HorizontalOptions="Fill"
-                    
+                    IsEnabled="False"
                     Text="START"
                     TextColor="White"
                     VerticalOptions="Center">
@@ -358,10 +316,10 @@
                     </Button.Style>
                 </Button>
             </Grid>
-            <Grid Margin="20,0,20,20" 
-                  WidthRequest="70"
-                  
-                  HorizontalOptions="Start">
+            <Grid
+                Margin="20,0,20,20"
+                HorizontalOptions="Start"
+                WidthRequest="70">
                 <Button Text="Logs">
                     <Button.Style>
                         <Style TargetType="Button">

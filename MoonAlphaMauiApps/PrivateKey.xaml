@@ -17,6 +17,7 @@
             <Editor
                 x:Name="txtPrivateKey"
                 AutoSize="TextChanges"
+                TextColor="Black"
                 BackgroundColor="White" />
 
             <HorizontalStackLayout HorizontalOptions="End" Spacing="10">

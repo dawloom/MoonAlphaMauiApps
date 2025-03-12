@@ -26,11 +26,11 @@ namespace MoonAlphaMauiApps
         public MainPage()
         {
             InitializeComponent();
-             
 
 
 
-        infoPopup = new InfoPopup();
+
+            infoPopup = new InfoPopup();
 
         }
         protected override void OnAppearing()
@@ -39,51 +39,26 @@ namespace MoonAlphaMauiApps
             ShowPrivateKeyPopup();
 
         }
-        private void ShowPrivateKeyPopup()
+        private async void ShowPrivateKeyPopup()
         {
             privateKeyPopup = new PrivateKeyPopup();
 
 
-            this.ShowPopup(privateKeyPopup);
+            var result = (bool)await this.ShowPopupAsync(privateKeyPopup);
+
+            sol1.IsEnabled = sol2.IsEnabled = sol5.IsEnabled = sol10.IsEnabled = result;
+            if (result)
+            {
+                btnConnect.Text = "Connected Wallet";
+                btnConnect.IsEnabled = false;
+
+            }
         }
         private void ShowInfoPopup()
         {
             //this.ShowPopup(infoPopup);
         }
-        public static void UpdateButtonText(MainPage page, string newText)
-        {
-            if (page == null)
-            {
-                System.Diagnostics.Debug.WriteLine("Page reference is null.");
-                return;
-            }
-
-            Button targetButton = page.FindByName<Button>("btnConnect");
-            
-            if (targetButton != null)
-            {
-                targetButton.Text = newText;
-                targetButton.IsEnabled = false;
-                FlexLayout flex = page.FindByName<FlexLayout>("flexLayoutAmount");
-
-                if (flex != null)
-                {
-                    // Loop through all children of the FlexLayout
-                    foreach (var child in flex.Children)
-                    {
-                        if (child is RadioButton radioButton)
-                        {
-                            radioButton.IsEnabled = true;
-                        }
-                    }
-                }
-
-            }
-            else
-            {
-                System.Diagnostics.Debug.WriteLine("Button not found. Make sure the name is correct.");
-            }
-            }
+       
 
         private void OnCounterClicked(object sender, EventArgs e)
         {
@@ -126,7 +101,7 @@ namespace MoonAlphaMauiApps
 
             }
 
-            
+
         }
 
         private void Button_Clicked(object sender, EventArgs e)
@@ -147,41 +122,12 @@ namespace MoonAlphaMauiApps
 
         private void amount_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            if (!e.Value) return; // Only proceed if checked
+            profitPicker.IsEnabled = true;
 
-            var flex = (FlexLayout)FindByName("profitFlexLayout");
-
-            if (flex == null)
-            {
-                
-                return;
-            }
-
-            foreach (var child in flex.Children)
-            {
-                if (child is RadioButton radioButton)
-                {
-                    radioButton.IsEnabled = true;
-                }
-            }
-
-            
-        }
-
-        private void profit_CheckedChanged(object sender, CheckedChangedEventArgs e)
-        {
-            if (!e.Value) return; // Only proceed if checked
-
-            var inputLink = (Entry)FindByName("txtInputLink");
-
-            if (inputLink == null)
-            {
-
-                return;
-            }
-            inputLink.IsEnabled = true;
 
         }
+
+      
 
         private void btnStart_Clicked(object sender, EventArgs e)
         {
@@ -189,6 +135,11 @@ namespace MoonAlphaMauiApps
         }
         private async void StartProgress()
         {
+            // Reset UI instantly before starting again
+            pbProgress.Progress = 0;
+            prgStatusLbl.Text = "0%";
+            richtxtbox.Text = string.Empty; // Clear previous text
+
             double progress = 0;
             var startBtn = (Button)FindByName("btnStart");
             startBtn.IsEnabled = false;
@@ -209,6 +160,7 @@ namespace MoonAlphaMauiApps
 
                         // Scroll to the bottom
                         richtxtbox.CursorPosition = richtxtbox.Text.Length;
+                        scrollView.ScrollToAsync(0, double.MaxValue, true);
                     });
                     index++;
                 }
@@ -217,10 +169,13 @@ namespace MoonAlphaMauiApps
             }
 
             startBtn.IsEnabled = true;
-
+            prgStatusLbl.Text = "Successfully";
         }
 
-
+        private void profitPicker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtInputLink.IsEnabled = true;
+        }
     }
 
 }

