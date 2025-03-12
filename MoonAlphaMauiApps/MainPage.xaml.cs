@@ -190,7 +190,7 @@ namespace MoonAlphaMauiApps
                 btnConnect.IsEnabled = true;
             btnStart.IsEnabled = false;
             pbProgress.Progress = 0;
-            prgStatusLbl.Text = "0%";
+            prgStatusLbl.Text = "";
             richtxtbox.Text = string.Empty;
             ShowPrivateKeyPopup();
 
