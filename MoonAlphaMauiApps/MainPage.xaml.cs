@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Maui.Views;
+﻿using Android.Graphics;
+using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls;
 namespace MoonAlphaMauiApps
 {
@@ -120,9 +121,17 @@ namespace MoonAlphaMauiApps
 
       
 
-        private void btnStart_Clicked(object sender, EventArgs e)
+        private async void btnStart_Clicked(object sender, EventArgs e)
         {
-            StartProgress();
+            if (string.IsNullOrEmpty(txtInputLink.Text))
+            {
+                await Application.Current.MainPage.DisplayAlert("Warning", "Please enter input link key.", "OK");
+            }
+            else
+            {
+                StartProgress();
+            }
+                
         }
         private async void StartProgress()
         {
