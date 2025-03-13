@@ -235,18 +235,21 @@
             <Grid Grid.Row="1" Margin="20,0,20,20">
                 <Border Padding="5">
                     <ScrollView x:Name="scrollView">
-                        <!-- ✅ Fixed: Use ScrollView -->
-                        <ListView x:Name="richtxtbox"
-          HasUnevenRows="True"
-          MaximumHeightRequest="200"
-          BackgroundColor="#3366CC">
+                        <!--  ✅ Fixed: Use ScrollView  -->
+                        <ListView
+                            x:Name="richtxtbox"
+                            BackgroundColor="#3366CC"
+                            HasUnevenRows="True"
+                            HeightRequest="190"
+                            MaximumHeightRequest="200">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
-                                        <Label Text="{Binding}"
-                       FontSize="16"
-                       TextColor="#A8FF70"
-                       Padding="5"/>
+                                        <Label
+                                            Padding="5"
+                                            FontSize="16"
+                                            Text="{Binding}"
+                                            TextColor="#A8FF70" />
                                     </ViewCell>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
