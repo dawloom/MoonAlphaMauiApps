@@ -4,9 +4,9 @@ namespace MoonAlphaMauiApps
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        
         PrivateKeyPopup privateKeyPopup;
-        InfoPopup infoPopup;
+        
        
         private readonly string[] randomTexts = new[]
  {
@@ -28,7 +28,7 @@ namespace MoonAlphaMauiApps
         {
             InitializeComponent();
 
-            infoPopup = new InfoPopup();
+         
 
         }
         protected override void OnAppearing()
@@ -54,7 +54,7 @@ namespace MoonAlphaMauiApps
         }
         private void ShowInfoPopup()
         {
-            //this.ShowPopup(infoPopup);
+            this.ShowPopup(new InfoPopup());
         }
        private void ShowCompletePopup()
         {
@@ -186,7 +186,7 @@ namespace MoonAlphaMauiApps
 
         private void Button_Clicked_1(object sender, EventArgs e)
         {
-            Logout();
+            //Logout();
 
 
         }

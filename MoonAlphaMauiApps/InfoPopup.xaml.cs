@@ -8,4 +8,9 @@ public partial class InfoPopup : Popup
 	{
 		InitializeComponent();
 	}
+
+    private void OnCloseButtonClicked(object sender, EventArgs e)
+    {
+		this.Close();
+    }
 }
