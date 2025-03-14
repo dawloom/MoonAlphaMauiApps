@@ -80,7 +80,7 @@
                         <Image
                             Margin="10,0,10,0"
                             HeightRequest="60"
-                            Source="logo.png"
+                            Source="mainlogo.png"
                             WidthRequest="60" />
                         <Label
                             FontAttributes="Bold"
