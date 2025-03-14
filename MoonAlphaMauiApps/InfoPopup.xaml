@@ -35,16 +35,9 @@
                     AutoSize="TextChanges"
                     BackgroundColor="Transparent"/>
 
-            <!-- Warning Box -->
-            <Border Stroke="#991b1b" StrokeThickness="1" Background="#fee2e2" Padding="10" StrokeShape="RoundRectangle 8">
-                <Editor Text="⚠️ WARNING: Trading cryptocurrencies involves significant risk. Always conduct thorough research 
-                              and never invest more than you can afford to lose."
-                        TextColor="#991b1b"
-                        IsReadOnly="True"
-                        AutoSize="TextChanges"
-                        BackgroundColor="Transparent"/>
+            
                 
-            </Border>
+            
             <Editor Text="How MoonAlpha Works" FontSize="18" FontAttributes="Bold" TextColor="#303f9f"
          IsReadOnly="True"
          AutoSize="TextChanges"
