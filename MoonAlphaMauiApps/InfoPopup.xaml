@@ -28,8 +28,9 @@
                     BackgroundColor="Transparent"/>
 
             <!-- Introduction -->
-            <Editor Text="MoonAlpha is a state-of-the-art Solana-based sniper bot designed to exploit profitable opportunities in the rapidly growing Solana meme coin market. With AI-powered trading intelligence, lightning-fast execution, and advanced security features, MoonAlpha helps traders stay ahead of the competition."
-                    TextColor="Black"
+            <Editor Text="MoonAlpha is a state-of-the-art Solana-based sniper bot designed to exploit every profitable opportunity in the rapidly growing Solana meme coin market. With its AI-powered trading intelligence, lightning-fast execution, and advanced security features, MoonAlpha ensures traders stay ahead of the competition, maximize profits, and avoid losses caused by rug pulls and market manipulation.
+
+    Built for both beginners and experienced traders, MoonAlpha boasts a 99% success rate by leveraging real-time blockchain data, deep market analysis, and custom sniping strategies to give users the ultimate trading advantage in the volatile world of Solana meme coins." TextColor="Black"
                     IsReadOnly="True"
                     AutoSize="TextChanges"
                     BackgroundColor="Transparent"/>
@@ -42,7 +43,23 @@
                         IsReadOnly="True"
                         AutoSize="TextChanges"
                         BackgroundColor="Transparent"/>
+                
             </Border>
+            <Editor Text="How MoonAlpha Works" FontSize="18" FontAttributes="Bold" TextColor="#303f9f"
+         IsReadOnly="True"
+         AutoSize="TextChanges"
+         BackgroundColor="Transparent"/>
+            <Border Background="#f3f4f6"  Padding="5" Margin="0,0,0,10">
+                <Editor Text="MoonAlpha is engineered to execute high-speed, precision trades on Solana-based decentralized exchanges (DEXs) like Raydium, Orca, and Jupiter. It scans the blockchain for newly launched meme coins, detects liquidity additions, buys in before the price surges, and automatically sells at the optimal moment to secure maximum profits.
+
+The bot uses Solana’s ultra-fast transaction speeds and low fees to ensure efficient, high-frequency trading without delays or high gas costs—giving traders the edge over manual buyers and slower bots." 
+          IsReadOnly="True"
+          TextColor="Black"
+          AutoSize="TextChanges"
+          BackgroundColor="Transparent"/>
+
+            </Border>
+
 
             <!-- Key Features -->
             <Editor Text="Key Features" FontSize="18" FontAttributes="Bold" TextColor="#303f9f"
@@ -58,17 +75,17 @@
                             AutoSize="TextChanges"
                             TextColor="Black"
                             BackgroundColor="Transparent"/>
-                    <Editor Text="• Detects new token launches and liquidity injections within seconds" 
+                    <Editor Text="• Detects new token launches, liquidity injections, and trending meme coins within seconds"
                             IsReadOnly="True"
                             TextColor="Black"
                             AutoSize="TextChanges"
                             BackgroundColor="Transparent"/>
-                    <Editor Text="• Executes automated buy orders before price spikes" 
+                    <Editor Text="• Executes automated buy orders before price spikes, ensuring the best entry points"
                             IsReadOnly="True"
                             TextColor="Black"
                             AutoSize="TextChanges"
                             BackgroundColor="Transparent"/>
-                    <Editor Text="• Bypasses anti-bot protections" 
+                    <Editor Text="• Bypasses anti-bot protections and frontrunners to stay ahead of competitors"
                             IsReadOnly="True"
                             TextColor="Black"
                             AutoSize="TextChanges"
@@ -84,49 +101,158 @@
                             TextColor="Black"
                             AutoSize="TextChanges"
                             BackgroundColor="Transparent"/>
-                    <Editor Text="• AI-driven analysis for optimal take-profit levels"
+                    <Editor Text="• Uses AI-driven analysis to determine the best take-profit and stop-loss levels"
                             IsReadOnly="True"
                             TextColor="Black"
                             AutoSize="TextChanges"
                             BackgroundColor="Transparent"/>
-                    <Editor Text="• Automatic selling on price pumps"
+                    <Editor 
+                            IsReadOnly="True"
+                            TextColor="Black"
+                        Text="• Can automatically sell on price pumps or ladder out for optimal returns"
+                            AutoSize="TextChanges"
+                            BackgroundColor="Transparent"/>
+                    <Editor Text="• Prevents holding onto worthless tokens by setting smart exit strategies"
                             IsReadOnly="True"
                             TextColor="Black"
                             AutoSize="TextChanges"
                             BackgroundColor="Transparent"/>
-                    <Editor Text="• Smart exit strategies"
+                </VerticalStackLayout>
+            </Border>
+            <!--Rug Pull and Scam Detection-->
+            <Border Background="#f3f4f6" StrokeThickness="0" Padding="10" StrokeShape="RoundRectangle 8">
+                <VerticalStackLayout>
+                    <Editor Text="🔐 Rug Pull &amp; Scam Detection" FontAttributes="Bold"
+                  IsReadOnly="True"
+                  TextColor="Black"
+                  AutoSize="TextChanges"
+                  BackgroundColor="Transparent"/>
+                    <Editor Text="• Scans for blacklisted contracts, suspicious liquidity patterns, and malicious tokenomics"
+                  IsReadOnly="True"
+                  TextColor="Black"
+                  AutoSize="TextChanges"
+                  BackgroundColor="Transparent"/>
+                    <Editor 
+                  IsReadOnly="True"
+                  TextColor="Black"
+              Text="• Auto-detects and blocks honeypots (tokens that don't allow selling)"
+                  AutoSize="TextChanges"
+                  BackgroundColor="Transparent"/>
+                    <Editor Text="• Alerts users to high-risk projects before investing"
+                  IsReadOnly="True"
+                  TextColor="Black"
+                  AutoSize="TextChanges"
+                  BackgroundColor="Transparent"/>
+                </VerticalStackLayout>
+            </Border>
+            <!-- Ultra-Fast Execution Feature -->
+            <Border Background="#f3f4f6" StrokeThickness="0" Padding="10" StrokeShape="RoundRectangle 8">
+                <VerticalStackLayout>
+                    <Editor Text="⚡ Ultra-Fast Execution on Solana DEXs" FontAttributes="Bold"
                             IsReadOnly="True"
                             TextColor="Black"
                             AutoSize="TextChanges"
                             BackgroundColor="Transparent"/>
+                    <Editor Text="• Supports Raydium, Orca, Jupiter, and other top Solana DEXs"
+                            IsReadOnly="True"
+                            TextColor="Black"
+                            AutoSize="TextChanges"
+                            BackgroundColor="Transparent"/>
+                    <Editor Text="• Uses Solana’s lightning-fast transactions (sub-second execution) for real-time trading"
+                            IsReadOnly="True"
+                            TextColor="Black"
+                            AutoSize="TextChanges"
+                            BackgroundColor="Transparent"/>
+                    <Editor Text="• Avoids network congestion issues common on Ethereum and Binance Smart Chain"
+                            IsReadOnly="True"
+                            TextColor="Black"
+                            AutoSize="TextChanges"
+                            BackgroundColor="Transparent"/>
+                </VerticalStackLayout>
+            </Border>
+            <!-- Customizable Trading Settings -->
+            <Border Background="#f3f4f6" StrokeThickness="0" Padding="10" StrokeShape="RoundRectangle 8">
+                <VerticalStackLayout>
+                    <Editor Text="⚙️ Customizable Trading Settings"  FontAttributes="Bold"
+                 IsReadOnly="True"
+                 TextColor="Black"
+                 AutoSize="TextChanges"
+                 BackgroundColor="Transparent"/>
+                    <Editor Text="• Set buy/sell thresholds, slippage tolerance, and gas fee priorities"
+                 IsReadOnly="True"
+                 TextColor="Black"
+                 AutoSize="TextChanges"
+                 BackgroundColor="Transparent"/>
+                    <Editor Text="• Multi-wallet support for diversifying trades across multiple accounts"
+                 IsReadOnly="True"
+                 TextColor="Black"
+                 AutoSize="TextChanges"
+                 BackgroundColor="Transparent"/>
+                    <Editor Text="• Multi-wallet support for diversifying trades across multiple accounts"
+                 IsReadOnly="True"
+                 TextColor="Black"
+                 AutoSize="TextChanges"
+                 BackgroundColor="Transparent"/>
+                </VerticalStackLayout>
+            </Border>
+            <!-- Real-Time Alerts -->
+            <Border Background="#f3f4f6" StrokeThickness="0" Padding="10" StrokeShape="RoundRectangle 8">
+                <VerticalStackLayout>
+                    <Editor Text="🔔 Real-Time Alerts &amp; Trading Insights"  FontAttributes="Bold"
+                 IsReadOnly="True"
+                 TextColor="Black"
+                 AutoSize="TextChanges"
+                 BackgroundColor="Transparent"/>
+                    <Editor Text="• Sends instant trade notifications via Telegram, Discord, or SMS"
+                 IsReadOnly="True"
+                 TextColor="Black"
+                 AutoSize="TextChanges"
+                 BackgroundColor="Transparent"/>
+                    <Editor Text="• Provides detailed trade analytics, portfolio tracking, and market insights"
+                 IsReadOnly="True"
+                 TextColor="Black"
+                 AutoSize="TextChanges"
+                 BackgroundColor="Transparent"/>
+                    <Editor Text="• AI-based trend predictions to identify the next big Solana meme coin"
+                 IsReadOnly="True"
+                 TextColor="Black"
+                 AutoSize="TextChanges"
+                 BackgroundColor="Transparent"/>
                 </VerticalStackLayout>
             </Border>
 
-            <!-- Security Features -->
+
+            <!-- Why Trade Solana -->
+            <Editor Text="Why Trade Solana Meme Coins with MoonAlpha?" FontSize="18" FontAttributes="Bold" TextColor="#303f9f"
+                    IsReadOnly="True"
+                    AutoSize="TextChanges"
+                    BackgroundColor="Transparent"/>
             <Border Background="#f3f4f6" StrokeThickness="0" Padding="10" StrokeShape="RoundRectangle 8">
                 <VerticalStackLayout>
-                    <Editor Text="🔐 Security Features" FontAttributes="Bold"
-                            IsReadOnly="True"
-                            TextColor="Black"
-                            AutoSize="TextChanges"
-                            BackgroundColor="Transparent"/>
-                    <Editor Text="• Rug pull and scam detection" 
-                            IsReadOnly="True"
-                            TextColor="Black"
-                            AutoSize="TextChanges"
-                            BackgroundColor="Transparent"/>
-                    <Editor Text="• Honeypot detection"
-                            IsReadOnly="True"
-                            TextColor="Black"
-                            AutoSize="TextChanges"
-                            BackgroundColor="Transparent"/>
-                    <Editor Text="• Real-time risk alerts"
-                            IsReadOnly="True"
-                            TextColor="Black"
-                            AutoSize="TextChanges"
-                            BackgroundColor="Transparent"/>
+                    <Editor  Text="• Lower Fees, Higher Profits - Solana’s low transaction costs (fractions of a cent) mean more trades and higher returns compared to Ethereum and BSC."
+      IsReadOnly="True"
+      TextColor="Black"
+      AutoSize="TextChanges"
+      BackgroundColor="Transparent"/>
+                    <Editor Text="• Faster Than Ethereum &amp; Binance Smart Chain - Solana’s high-speed transactions (up to 65,000 TPS) ensure instant trade execution, reducing the risk of missing pumps. "
+      IsReadOnly="True"
+      TextColor="Black"
+      AutoSize="TextChanges"
+      BackgroundColor="Transparent"/>
+                    <Editor Text="• Explosive Growth Opportunities - Solana meme coins have seen 100x–1000x gains in short periods, making early entries critical for maximizing profits.  
+"
+      IsReadOnly="True"
+      TextColor="Black"
+      AutoSize="TextChanges"
+      BackgroundColor="Transparent"/>
+                    <Editor Text="• Automated Risk Management - With rug pull detection, smart trading strategies, and instant exit options, MoonAlpha protects traders from losses and scams"
+      IsReadOnly="True"
+      TextColor="Black"
+      AutoSize="TextChanges"
+      BackgroundColor="Transparent"/>
                 </VerticalStackLayout>
             </Border>
+
 
             <!-- Getting Started -->
             <Editor Text="Getting Started" FontSize="18" FontAttributes="Bold" TextColor="#303f9f"
@@ -161,9 +287,13 @@
             </Border>
 
             <!-- Supported Wallets -->
-            <Editor Text="Supported wallets: Phantom, Solflare, and Backpack"
+            <Editor Text="MoonAlpha is an Alpha sniper bot—it’s the ultimate tool for dominating the Solana meme coin market. 
+With AI-powered trading, ultra-fast execution, and top-tier security, traders can maximize profits while minimizing risks.
+
+Don’t miss out on the next 100x Solana meme coin—trade smarter with MoonAlpha today!"
                     HorizontalOptions="Center"
-                    FontSize="16"
+                   
+                    TextColor="Black"
                     FontAttributes="Bold"
                     IsReadOnly="True"
                     AutoSize="TextChanges"
