@@ -6,8 +6,8 @@
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     Color="white">
 
-    <Grid  HeightRequest="250" 
- WidthRequest="400">
+    <Grid  HeightRequest="200" 
+ WidthRequest="300">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -15,7 +15,8 @@
         <Label
             Grid.Row="0"
             FontAttributes="Bold"
-            FontSize="22"
+            FontSize="18"
+            
             HorizontalOptions="Center"
             Text="Trade Success"
             TextColor="Black" />
@@ -24,9 +25,9 @@
 
                 <!--  Trade Label  -->
                 <Label
-                    Margin="0,0,0,20"
+                    Margin="0,0,0,5"
                     FontAttributes="Bold"
-                    FontSize="40"
+                    FontSize="30"
                     HorizontalOptions="Center"
                     Text="Trade +100%"
                     TextColor="#32CD32" />
@@ -37,15 +38,15 @@
                     BackgroundColor="#32CD32"
                     StrokeShape="RoundRectangle 25"
                     StrokeThickness="0"
-                    WidthRequest="300">
+                    WidthRequest="250">
 
                     <Button
-                        Padding="20,10"
+                        Padding="15,5"
                         BackgroundColor="#32CD32"
                         Clicked="Button_Click"
                         CornerRadius="25"
                         FontAttributes="Bold"
-                        FontSize="30"
+                        FontSize="20"
                         Text="Completed!"
                         TextColor="White" />
 
