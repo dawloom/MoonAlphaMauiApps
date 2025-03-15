@@ -21,10 +21,10 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>MoonAlphaMauiApps</ApplicationTitle>
+		<ApplicationTitle>Moon Alpha</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.moonalphamauiapps</ApplicationId>
+		<ApplicationId>com.moon.moonalphamauiapps</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -43,7 +43,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.png" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appicon.png"  Color="#512BD4" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\logo.png" Color="#512BD4" BaseSize="128,128" />
@@ -88,5 +88,11 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
-
+	<PropertyGroup Condition="$(TargetFramework.Contains('-android')) and '$(Configuration)' == 'Release'">
+		<AndroidKeyStore>True</AndroidKeyStore>
+		<AndroidSigningKeyStore>myapp.keystore</AndroidSigningKeyStore>
+		<AndroidSigningKeyAlias>MyAppkey</AndroidSigningKeyAlias>
+		<AndroidSigningKeyPass>252525</AndroidSigningKeyPass>
+		<AndroidSigningStorePass>252525</AndroidSigningStorePass>
+	</PropertyGroup>
 </Project>
