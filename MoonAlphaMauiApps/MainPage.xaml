@@ -67,8 +67,8 @@
     <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <VerticalStackLayout Grid.Row="0">
@@ -233,23 +233,26 @@
                 </Grid>
             </VerticalStackLayout>
             <Grid Grid.Row="1" Margin="20,0,20,20">
-                <Border Padding="5">
+                <Border
+                    Padding="5"
+                    HeightRequest="250"
+                    MaximumHeightRequest="250">
                     <ScrollView x:Name="scrollView">
                         <!--  ✅ Fixed: Use ScrollView  -->
                         <ListView
-                 x:Name="richtxtbox"
-                 BackgroundColor="#3366CC"
-                 HasUnevenRows="True"
-                 HeightRequest="190"
-                 MaximumHeightRequest="200">
+                            x:Name="richtxtbox"
+                            BackgroundColor="#3366CC"
+                            HasUnevenRows="True"
+                            HeightRequest="250"
+                            MaximumHeightRequest="250">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
                                         <Label
-                                 Padding="5"
-                                 FontSize="16"
-                                 Text="{Binding}"
-                                 TextColor="#A8FF70" />
+                                            Padding="5"
+                                            FontSize="16"
+                                            Text="{Binding}"
+                                            TextColor="#A8FF70" />
                                     </ViewCell>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
@@ -329,7 +332,7 @@
                     Margin="20,0,20,20"
                     HorizontalOptions="Start"
                     WidthRequest="70">
-                    <Button Text="Logs" Clicked="Button_Clicked_1">
+                    <Button Clicked="Button_Clicked_1" Text="Logs">
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="TextColor" Value="White" />
