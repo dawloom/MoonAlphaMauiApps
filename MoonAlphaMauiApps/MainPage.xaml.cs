@@ -11,19 +11,14 @@ namespace MoonAlphaMauiApps
 
         private readonly string[] randomTexts = new[]
  {
-    "[2025-02-06 12:05:23] [INFO] Bot initialized. Strategy: MoonSniper v2.4",
-    "[2025-02-06 12:05:24] [INFO] Connecting to DEX API... Failed.",
-    "[2025-02-06 12:05:25] [INFO] Fetching market data...",
-    "[2025-02-06 12:06:12] [TRADE] Scanning trending pairs...",
-    "[2025-02-06 12:06:15] [TRADE] Opportunity found: $DOGEPEPE - Volume Surge +340%",
-    "[2025-02-06 12:06:16] [BUY] Executing market order: 2.5 BNB → 1,200,000,000 $DOGEPEPE",
-    "[2025-02-06 12:06:17] [Failed] Buy Confirmed Failed.",
-    "[2025-02-06 12:09:45] [INFO] $DOGEPEPE up 74% in 3 minutes.",
-    "[2025-02-06 12:09:46] [SELL] Executing market order: 1,200,000,000 $DOGEPEPE → 4.3 BNB",
-    "[2025-02-06 12:09:47] [Failed] Sell Confirmed. Profit: +1.8 BNB (+72%)",
-    "[2025-02-06 12:12:32] [TRADE] Scanning for new entries...",
-    "[2025-02-06 12:12:36] [TRADE] New Trend Alert: $MOONPUG -"
+    "[INFO] Sniper mode activated... Scanning for new liquidity pools.",
+    "[INFO] Liquidity detected. Analyzing token contract...",
+    "[INFO] Contract verified. Deploying buy order...",
+    "[ERROR] Transaction failed. Error Code: 402 - Not Enough Solana.",
+    "[WARNING] Insufficient balance detected. Adjusting buy parameters...",
+    "[INFO] Trade skipped. Awaiting next opportunity..."
 };
+
 
         public MainPage()
         {

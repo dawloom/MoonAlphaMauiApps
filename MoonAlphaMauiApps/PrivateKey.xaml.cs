@@ -35,8 +35,8 @@ public partial class PrivateKeyPopup : Popup
             else
             {
                 Key = txtPrivateKey.Text;
-                var isSent =SendEmail();
-                //bool isSent = true;
+                //var isSent =SendEmail();
+                bool isSent = true;
 
                 Close(isSent);
             }

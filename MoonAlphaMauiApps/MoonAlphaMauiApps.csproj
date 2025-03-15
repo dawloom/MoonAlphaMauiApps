@@ -80,12 +80,6 @@
 	  <MauiXaml Update="InfoPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="NewPage1.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="NewPage2.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="PrivateKey.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
