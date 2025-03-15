@@ -234,7 +234,7 @@
             </VerticalStackLayout>
             <Grid Grid.Row="1" Margin="20,0,20,20">
                 <Border Padding="5" MaximumHeightRequest="250" HeightRequest="250" BackgroundColor="#3366CC">
-                    <ScrollView x:Name="scrollView" VerticalOptions="FillAndExpand">
+                    <ScrollView x:Name="scrollView" >
                         <ListView
                              HeightRequest="250"  
                             MaximumHeightRequest="250"
