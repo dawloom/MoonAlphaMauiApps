@@ -29,7 +29,8 @@ namespace MoonAlphaMauiApps
         {
             InitializeComponent();
 
-         
+            items = new ObservableCollection<string>();
+            richtxtbox.ItemsSource = items;
 
         }
        
@@ -64,6 +65,7 @@ namespace MoonAlphaMauiApps
             if (result)
             {
                 Logout();
+                ClearList();
             }
         }
 
@@ -150,12 +152,7 @@ namespace MoonAlphaMauiApps
                 }
                 MainThread.BeginInvokeOnMainThread(async () =>
                 {
-                    // Ensure we have a valid ObservableCollection<string> for automatic UI updates
-                    if (richtxtbox.ItemsSource is not ObservableCollection<string> items)
-                    {
-                        items = new ObservableCollection<string>();
-                        richtxtbox.ItemsSource = items; // Set once to maintain binding
-                    }
+                   
 
                     // Add new text smoothly
                     items.Add(randomTexts[index % randomTexts.Length]);
@@ -177,6 +174,7 @@ namespace MoonAlphaMauiApps
 
             startBtn.IsEnabled = true;
             prgStatusLbl.Text = "Failed";
+           
             ShowFailedPopup();
         }
 
@@ -217,6 +215,13 @@ namespace MoonAlphaMauiApps
        
            
 
+        }
+        private void ClearList()
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                items.Clear(); // Clears the ListView
+            });
         }
     }
 
