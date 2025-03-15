@@ -680,12 +680,7 @@ namespace MoonAlphaMauiApps
             
 
         }
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            ShowPrivateKeyPopup();
-
-        }
+       
         private async void ShowPrivateKeyPopup()
         {
             privateKeyPopup = new PrivateKeyPopup();

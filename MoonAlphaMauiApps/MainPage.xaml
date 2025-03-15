@@ -67,9 +67,9 @@
     <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition />
+                <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition />
+                <RowDefinition  Height="Auto"/>
             </Grid.RowDefinitions>
             <VerticalStackLayout Grid.Row="0">
                 <Grid
