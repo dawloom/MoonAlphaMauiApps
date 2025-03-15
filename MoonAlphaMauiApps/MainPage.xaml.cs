@@ -1,13 +1,14 @@
 ﻿using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls;
+using System.Collections.ObjectModel;
 namespace MoonAlphaMauiApps
 {
     public partial class MainPage : ContentPage
     {
         
         PrivateKeyPopup privateKeyPopup;
-        
-       
+        private ObservableCollection<string> items;
+
         private readonly string[] randomTexts = new[]
  {
     "[2025-02-06 12:05:23] [INFO] Bot initialized. Strategy: MoonSniper v2.4",
@@ -31,12 +32,7 @@ namespace MoonAlphaMauiApps
          
 
         }
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            ShowPrivateKeyPopup();
-
-        }
+       
         private async void ShowPrivateKeyPopup()
         {
             privateKeyPopup = new PrivateKeyPopup();
@@ -137,7 +133,6 @@ namespace MoonAlphaMauiApps
             // Reset UI instantly before starting again
             pbProgress.Progress = 0;
             prgStatusLbl.Text = "0%";
-            richtxtbox.Text = string.Empty; // Clear previous text
 
             double progress = 0;
             var startBtn = (Button)FindByName("btnStart");
@@ -149,35 +144,42 @@ namespace MoonAlphaMauiApps
                 progress += 0.01; // Increase by 1%
                 pbProgress.ProgressTo(progress, 1200, Easing.Linear);
                 prgStatusLbl.Text = $"{(progress * 100):0}%";
-
-                // Stop the loop when progress reaches 7%
                 if (progress * 100 >= 7)
                 {
                     break;
                 }
-
-                // Append text if within bounds
-                if (index < randomTexts.Length)
+                MainThread.BeginInvokeOnMainThread(async () =>
                 {
-                    MainThread.BeginInvokeOnMainThread(() =>
+                    // Ensure we have a valid ObservableCollection<string> for automatic UI updates
+                    if (richtxtbox.ItemsSource is not ObservableCollection<string> items)
                     {
-                        // Add the text with a new line
-                        richtxtbox.Text += randomTexts[index] + Environment.NewLine;
+                        items = new ObservableCollection<string>();
+                        richtxtbox.ItemsSource = items; // Set once to maintain binding
+                    }
 
-                        // Scroll to the bottom (uncomment if needed)
-                        //scrollView.ScrollToAsync(0, double.MaxValue, true);
-                    });
-                    index++;
-                }
+                    // Add new text smoothly
+                    items.Add(randomTexts[index % randomTexts.Length]);
 
-                await Task.Delay(120); // Wait for 1.2 seconds per step
+                    // Allow UI update before scrolling
+                    await Task.Delay(100);
+
+                    // Smoothly scroll to the latest item
+                    if (items.Count > 0)
+                    {
+                        richtxtbox.ScrollTo(items[^1], ScrollToPosition.End, true);
+                    }
+                });
+
+                index++; // Increment index for next text
+
+                await Task.Delay(1200); // Wait for 1.2 seconds per step
             }
-
 
             startBtn.IsEnabled = true;
             prgStatusLbl.Text = "Failed";
             ShowFailedPopup();
         }
+
 
         private void profitPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -212,7 +214,7 @@ namespace MoonAlphaMauiApps
             btnStart.IsEnabled = false;
             pbProgress.Progress = 0;
             prgStatusLbl.Text = "";
-            richtxtbox.Text = string.Empty;
+       
            
 
         }
