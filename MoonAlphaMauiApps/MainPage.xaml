@@ -67,8 +67,8 @@
     <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
                 <RowDefinition  Height="Auto"/>
             </Grid.RowDefinitions>
             <VerticalStackLayout Grid.Row="0">
@@ -233,30 +233,29 @@
                 </Grid>
             </VerticalStackLayout>
             <Grid Grid.Row="1" Margin="20,0,20,20">
-                <Border Padding="5">
-                    <ScrollView x:Name="scrollView">
-                        <!--  ✅ Fixed: Use ScrollView  -->
+                <Border Padding="5" MaximumHeightRequest="250" HeightRequest="250" BackgroundColor="#3366CC">
+                    <ScrollView x:Name="scrollView" VerticalOptions="FillAndExpand">
                         <ListView
-                            x:Name="richtxtbox"
-                            BackgroundColor="#3366CC"
-                            HasUnevenRows="True"
-                            HeightRequest="190"
-                            MaximumHeightRequest="200">
+                             HeightRequest="250"  
+                            MaximumHeightRequest="250"
+            x:Name="richtxtbox"
+            BackgroundColor="#3366CC"
+            HasUnevenRows="True">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
                                         <Label
-                                            Padding="5"
-                                            FontSize="16"
-                                            Text="{Binding}"
-                                            TextColor="#A8FF70" />
+                            Padding="5"
+                            FontSize="16"
+                            Text="{Binding}"
+                            TextColor="#A8FF70" />
                                     </ViewCell>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
-
                     </ScrollView>
                 </Border>
+
             </Grid>
             <VerticalStackLayout Grid.Row="2">
                 <Grid Margin="20,0,20,20">
