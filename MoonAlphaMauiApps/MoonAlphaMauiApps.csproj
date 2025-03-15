@@ -21,7 +21,7 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>MoonAlphaMauiApps</ApplicationTitle>
+		<ApplicationTitle>Moon Alpha</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.moonalphamauiapps</ApplicationId>
