@@ -676,8 +676,9 @@ namespace MoonAlphaMauiApps
         public MainPage()
         {
             InitializeComponent();
+            sol1.IsEnabled = sol2.IsEnabled = sol5.IsEnabled = sol10.IsEnabled = false;
 
-            
+
 
         }
        
@@ -688,11 +689,12 @@ namespace MoonAlphaMauiApps
 
             var result = (bool)await this.ShowPopupAsync(privateKeyPopup);
 
-            sol1.IsEnabled = sol2.IsEnabled = sol5.IsEnabled = sol10.IsEnabled = result;
+          
             if (result)
             {
                 btnConnect.Text = "Connected Wallet";
                 btnConnect.IsEnabled = false;
+                sol1.IsEnabled = sol2.IsEnabled = sol5.IsEnabled = sol10.IsEnabled = result;
 
             }
         }
